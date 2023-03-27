@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -26,9 +26,24 @@ namespace Collection
                 ["Турция"] = "Анкара",
                 ["Португалия"] = "Лиссабон"
             };
+            if (dict.ContainsKey(s))
+            // Метод ContainsKey(TKey)	Проверяет наличие в словаре указанного ключа.
+            {
+                Console.WriteLine($"Столица данной страны: {dict[s]}");
 
-            // вывод данных на экран
-            Console.WriteLine($"Столица данной страны: {dict[s]}");
+                dict.Remove(s);
+                // Метод Remove(TKey)	Удаляет элемент с указанным ключом.
+
+                foreach (var key in dict.Keys) Console.WriteLine("\n" + dict[key]);
+                // Вывод оставшихся ключей. 
+                dict.Clear();
+                // Метод Clear()Удаляет из словаря все элементы.
+
+                foreach (var key in dict.Keys) Console.WriteLine(dict[key]);
+                // Здесь будет пустой вывод
+            }
+            else
+                Console.WriteLine("Такого страны в словаре нет.");
         }
     }
 }
